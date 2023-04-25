@@ -3,10 +3,11 @@ import './Main.style.scss';
 import {inject, observer} from 'mobx-react';
 import {locationStore} from '../../store/global';
 import {Locations} from '../Locations/Locations';
-import {Location} from '../../store/locationStore';
+import {LocationInterface} from '../../store/locationStore';
 
 interface P {
-    locationStore?: { locations?: Location[] };
+    locationStore?: { locations?: LocationInterface[],
+    rootSlots?: LocationInterface[]};
 }
 
 @inject('locationStore')
@@ -14,12 +15,13 @@ interface P {
 
 export class Main extends Component<P> {
     componentDidMount(): void {
-        locationStore.getData();
+        locationStore.getRootSlots();
     }
 
     render(): JSX.Element {
-        const {locations} = this.props.locationStore;
-        return <Locations locations={locations} />;
+        const {rootSlots} = locationStore;
+
+        return <Locations locations={rootSlots} />;
     }
 }
 

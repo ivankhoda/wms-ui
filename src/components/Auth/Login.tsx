@@ -1,4 +1,4 @@
-import React, {SetStateAction, useEffect, useState} from 'react';
+import React, {SetStateAction, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import './Login.style.scss';
 

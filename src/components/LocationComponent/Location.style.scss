@@ -10,7 +10,6 @@
 
   &__parent {
     font-size: 18px;
-    background-color: red;
     margin-bottom: 5px;
   }
 
@@ -32,4 +31,121 @@
   font-size: 14px;
   color: $color-dark-gray;
   margin-bottom: 0;
+}
+
+.slot-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: $color-light-gray;
+  border-radius: 4px;
+  font-size: 14px;
+  color: black;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slot-info-child-slots {
+  margin-right: 8px;
+}
+
+.slot-info-num-items {
+  font-weight: bold;
+}
+// Plus icon
+.plus-icon {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  display: inline-block;
+  transform: rotate(45deg);
+  position: relative;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.plus-icon:before,
+.plus-icon:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #333;
+}
+
+.plus-icon:before {
+  width: 50%;
+  height: 1px;
+  margin-top: -1px;
+  margin-left: -25%;
+}
+
+.plus-icon:after {
+  width: 1px;
+  height: 50%;
+  margin-left: -1px;
+  margin-top: -25%;
+}
+
+// Minus icon
+.minus-icon {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.minus-icon:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #333;
+  width: 50%;
+  height: 1px;
+  margin-top: -1px;
+  margin-left: -25%;
+}
+
+
+
+.nested-locations-tree {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .location-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem;
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
+
+    .location-name {
+      margin-left: 1rem;
+    }
+
+    .caret {
+      margin-left: auto;
+      margin-right: 1rem;
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform 0.2s ease-in-out;
+      transform: rotate(0deg);
+    }
+
+    &.expanded .caret {
+      transform: rotate(90deg);
+    }
+  }
 }
